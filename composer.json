@@ -1,0 +1,26 @@
+{
+    "name": "drupal/search_api_solr_nlp",
+    "description": "Adds support for Solr's OpenNLP integration to Search API Solr.",
+    "type": "drupal-module",
+    "homepage": "https://www.drupal.org/project/search_api_solr_nlp",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Markus Kalkbrenner",
+            "homepage": "https://www.drupal.org/u/mkalkbrenner"
+        },
+        {
+            "name": "Other contributors",
+            "homepage": "https://www.drupal.org/node/3180705/committers"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/search_api_solr_nlp",
+        "chat": "https://drupalchat.me/channel/search",
+        "source": "http://git.drupal.org/project/search_api_solr_nlp.git"
+    },
+    "require": {
+        "drupal/search_api_solr": "~4.1",
+        "mkalkbrenner/solarium-nlp": "~0.1"
+    }
+}
