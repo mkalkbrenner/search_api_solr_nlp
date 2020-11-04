@@ -1,1 +1,1 @@
-# search_api_solr_nlp
+# Search API Solr NLP
