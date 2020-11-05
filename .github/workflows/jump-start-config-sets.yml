@@ -42,8 +42,9 @@ jobs:
             - name: Checkout search_api_solr
               uses: actions/checkout@v2
               with:
+                repository: mkalkbrenner/search_api_solr
+                ref: 4.1.x
                 path: search_api_solr
-                fetch-depth: 0
 
             - name: Tag search_api_solr
               run: |
@@ -196,8 +197,9 @@ jobs:
             - name: Checkout search_api_solr
               uses: actions/checkout@v2
               with:
+                repository: mkalkbrenner/search_api_solr
+                ref: 4.1.x
                 path: search_api_solr
-                fetch-depth: 0
 
             - name: Tag search_api_solr
               run: |
