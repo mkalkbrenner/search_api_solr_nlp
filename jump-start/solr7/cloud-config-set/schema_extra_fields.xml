@@ -33,6 +33,12 @@
 <dynamicField name="tus_X3b_cs_*" type="text_unstemmed_cs" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tum_X3b_cs_*" type="text_unstemmed_cs" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="sort_X3b_cs_*" type="collated_cs" stored="false" indexed="false" docValues="true" />
+<dynamicField name="tcnounss_X3b_da_*" type="text_nouns_da" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounsm_X3b_da_*" type="text_nouns_da" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tocnounss_X3b_da_*" type="text_nouns_da" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
+<dynamicField name="tocnounsm_X3b_da_*" type="text_nouns_da" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
+<dynamicField name="tucnounss_X3b_da_*" type="text_nouns_da" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tucnounsm_X3b_da_*" type="text_nouns_da" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="ts_X3b_da_*" type="text_da" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tm_X3b_da_*" type="text_da" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="tos_X3b_da_*" type="text_da" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
@@ -40,6 +46,12 @@
 <dynamicField name="tus_X3b_da_*" type="text_unstemmed_da" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tum_X3b_da_*" type="text_unstemmed_da" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="sort_X3b_da_*" type="collated_da" stored="false" indexed="false" docValues="true" />
+<dynamicField name="tcnounss_X3b_nl_*" type="text_nouns_nl" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounsm_X3b_nl_*" type="text_nouns_nl" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tocnounss_X3b_nl_*" type="text_nouns_nl" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
+<dynamicField name="tocnounsm_X3b_nl_*" type="text_nouns_nl" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
+<dynamicField name="tucnounss_X3b_nl_*" type="text_nouns_nl" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tucnounsm_X3b_nl_*" type="text_nouns_nl" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="ts_X3b_nl_*" type="text_nl" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tm_X3b_nl_*" type="text_nl" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="tos_X3b_nl_*" type="text_nl" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
@@ -71,6 +83,12 @@
 <dynamicField name="tucedges_*" type="text_edge" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tucedgem_X3b_und_*" type="text_edge" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="tucedgem_*" type="text_edge" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounss_X3b_en_*" type="text_nouns_en" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounsm_X3b_en_*" type="text_nouns_en" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tocnounss_X3b_en_*" type="text_nouns_en" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
+<dynamicField name="tocnounsm_X3b_en_*" type="text_nouns_en" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
+<dynamicField name="tucnounss_X3b_en_*" type="text_nouns_en" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tucnounsm_X3b_en_*" type="text_nouns_en" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="ts_X3b_en_*" type="text_en" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tm_X3b_en_*" type="text_en" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="tos_X3b_en_*" type="text_en" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
@@ -158,6 +176,12 @@
 <dynamicField name="tocphoneticm_X3b_uk_*" type="text_phonetic_uk" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
 <dynamicField name="tucphonetics_X3b_uk_*" type="text_phonetic_uk" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tucphoneticm_X3b_uk_*" type="text_phonetic_uk" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounss_X3b_de_*" type="text_nouns_de" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounsm_X3b_de_*" type="text_nouns_de" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tocnounss_X3b_de_*" type="text_nouns_de" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
+<dynamicField name="tocnounsm_X3b_de_*" type="text_nouns_de" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
+<dynamicField name="tucnounss_X3b_de_*" type="text_nouns_de" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tucnounsm_X3b_de_*" type="text_nouns_de" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="ts_X3b_de_*" type="text_de" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tm_X3b_de_*" type="text_de" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="tos_X3b_de_*" type="text_de" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
@@ -201,6 +225,18 @@
 <dynamicField name="tum_X3b_ja_*" type="text_ja" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="spellcheck_ja*" type="text_spell_ja" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
 <dynamicField name="sort_X3b_ja_*" type="collated_ja" stored="false" indexed="false" docValues="true" />
+<dynamicField name="tcnounss_X3b_und_*" type="text_nouns_und" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounss_*" type="text_nouns_und" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounsm_X3b_und_*" type="text_nouns_und" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounsm_*" type="text_nouns_und" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tocnounss_X3b_und_*" type="text_nouns_und" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
+<dynamicField name="tocnounss_*" type="text_nouns_und" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
+<dynamicField name="tocnounsm_X3b_und_*" type="text_nouns_und" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
+<dynamicField name="tocnounsm_*" type="text_nouns_und" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
+<dynamicField name="tucnounss_X3b_und_*" type="text_nouns_und" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tucnounss_*" type="text_nouns_und" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tucnounsm_X3b_und_*" type="text_nouns_und" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tucnounsm_*" type="text_nouns_und" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="ts_X3b_und_*" type="text_und" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="ts_*" type="text_und" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tm_X3b_und_*" type="text_und" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
@@ -276,6 +312,12 @@
 <dynamicField name="tus_X3b_pl_*" type="text_unstemmed_pl" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tum_X3b_pl_*" type="text_unstemmed_pl" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="sort_X3b_pl_*" type="collated_pl" stored="false" indexed="false" docValues="true" />
+<dynamicField name="tcnounss_X3b_pt_X2d_br_*" type="text_nouns_pt_br" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounsm_X3b_pt_X2d_br_*" type="text_nouns_pt_br" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tocnounss_X3b_pt_X2d_br_*" type="text_nouns_pt_br" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
+<dynamicField name="tocnounsm_X3b_pt_X2d_br_*" type="text_nouns_pt_br" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
+<dynamicField name="tucnounss_X3b_pt_X2d_br_*" type="text_nouns_pt_br" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tucnounsm_X3b_pt_X2d_br_*" type="text_nouns_pt_br" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="ts_X3b_pt_X2d_br_*" type="text_pt_br" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tm_X3b_pt_X2d_br_*" type="text_pt_br" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="tos_X3b_pt_X2d_br_*" type="text_pt_br" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
@@ -283,6 +325,12 @@
 <dynamicField name="tus_X3b_pt_X2d_br_*" type="text_unstemmed_pt_br" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tum_X3b_pt_X2d_br_*" type="text_unstemmed_pt_br" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="sort_X3b_pt_X2d_br_*" type="collated_pt_br" stored="false" indexed="false" docValues="true" />
+<dynamicField name="tcnounss_X3b_pt_X2d_pt_*" type="text_nouns_pt_pt" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tcnounsm_X3b_pt_X2d_pt_*" type="text_nouns_pt_pt" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
+<dynamicField name="tocnounss_X3b_pt_X2d_pt_*" type="text_nouns_pt_pt" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />
+<dynamicField name="tocnounsm_X3b_pt_X2d_pt_*" type="text_nouns_pt_pt" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="true" />
+<dynamicField name="tucnounss_X3b_pt_X2d_pt_*" type="text_nouns_pt_pt" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
+<dynamicField name="tucnounsm_X3b_pt_X2d_pt_*" type="text_nouns_pt_pt" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="ts_X3b_pt_X2d_pt_*" type="text_pt_pt" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="false" />
 <dynamicField name="tm_X3b_pt_X2d_pt_*" type="text_pt_pt" stored="true" indexed="true" multiValued="true" termVectors="true" omitNorms="false" />
 <dynamicField name="tos_X3b_pt_X2d_pt_*" type="text_pt_pt" stored="true" indexed="true" multiValued="false" termVectors="true" omitNorms="true" />

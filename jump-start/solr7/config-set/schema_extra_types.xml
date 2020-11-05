@@ -260,6 +260,25 @@
   </analyzer>
 </fieldType>
 <!--
+  Danish Nouns Field
+  7.0.0
+-->
+<fieldType name="text_nouns_da" class="solr.TextField" positionIncrementGap="100">
+  <analyzer type="index">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="da-sent.bin" tokenizerModel="da-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="da-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_da.txt" useWhitelist="true"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_da.txt"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+  <analyzer type="query">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="da-sent.bin" tokenizerModel="da-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="da-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_da.txt" useWhitelist="true"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+</fieldType>
+<!--
   Danish Text Field
   7.0.0
 -->
@@ -313,6 +332,25 @@
     <filter class="solr.LowerCaseFilterFactory"/>
     <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_da.txt" expand="true" ignoreCase="true"/>
     <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_da.txt"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+</fieldType>
+<!--
+  Dutch Nouns Field
+  7.0.0
+-->
+<fieldType name="text_nouns_nl" class="solr.TextField" positionIncrementGap="100">
+  <analyzer type="index">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="nl-sent.bin" tokenizerModel="nl-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="nl-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_nl.txt" useWhitelist="true"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_nl.txt"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+  <analyzer type="query">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="nl-sent.bin" tokenizerModel="nl-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="nl-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_nl.txt" useWhitelist="true"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -412,6 +450,25 @@
     <tokenizer class="solr.WhitespaceTokenizerFactory"/>
     <filter class="solr.LengthFilterFactory" min="2" max="100"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+</fieldType>
+<!--
+  English Nouns Field
+  7.0.0
+-->
+<fieldType name="text_nouns_en" class="solr.TextField" positionIncrementGap="100">
+  <analyzer type="index">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="en-sent.bin" tokenizerModel="en-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_en.txt" useWhitelist="true"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_en.txt"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+  <analyzer type="query">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="en-sent.bin" tokenizerModel="en-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_en.txt" useWhitelist="true"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -820,6 +877,25 @@
   </analyzer>
 </fieldType>
 <!--
+  German Nouns Field
+  7.0.0
+-->
+<fieldType name="text_nouns_de" class="solr.TextField" positionIncrementGap="100">
+  <analyzer type="index">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="de-sent.bin" tokenizerModel="de-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="de-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_de.txt" useWhitelist="true"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_de.txt"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+  <analyzer type="query">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="de-sent.bin" tokenizerModel="de-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="de-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_de.txt" useWhitelist="true"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+</fieldType>
+<!--
   German Text Field
   7.0.0
 -->
@@ -1119,6 +1195,25 @@
   6.0.0
 -->
 <fieldType name="collated_ja" class="solr.ICUCollationField" locale="ja" strength="primary" caseLevel="false"/>
+<!--
+  Language Undefined Nouns Field
+  7.0.0
+-->
+<fieldType name="text_nouns_und" class="solr.TextField" positionIncrementGap="100">
+  <analyzer type="index">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="en-sent.bin" tokenizerModel="en-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_und.txt" useWhitelist="true"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_und.txt"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+  <analyzer type="query">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="en-sent.bin" tokenizerModel="en-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_und.txt" useWhitelist="true"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+</fieldType>
 <!--
   Language Undefined Text Field
   7.0.0
@@ -1484,6 +1579,25 @@
   </analyzer>
 </fieldType>
 <!--
+  Portuguese, Brazilian Nouns Field
+  7.0.0
+-->
+<fieldType name="text_nouns_pt_br" class="solr.TextField" positionIncrementGap="100">
+  <analyzer type="index">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="pt-sent.bin" tokenizerModel="pt-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_pt_br.txt" useWhitelist="true"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_pt_br.txt"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+  <analyzer type="query">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="pt-sent.bin" tokenizerModel="pt-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_pt_br.txt" useWhitelist="true"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+</fieldType>
+<!--
   Portuguese, Brazilian Text Field
   7.0.0
 -->
@@ -1533,6 +1647,25 @@
     <filter class="solr.LowerCaseFilterFactory"/>
     <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_pt_br.txt" expand="true" ignoreCase="true"/>
     <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords_pt_br.txt"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+</fieldType>
+<!--
+  Portuguese, Portugal Nouns Field
+  7.0.0
+-->
+<fieldType name="text_nouns_pt_pt" class="solr.TextField" positionIncrementGap="100">
+  <analyzer type="index">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="pt-sent.bin" tokenizerModel="pt-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_pt_pt.txt" useWhitelist="true"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_pt_pt.txt"/>
+    <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+  </analyzer>
+  <analyzer type="query">
+    <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="pt-sent.bin" tokenizerModel="pt-token.bin"/>
+    <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
+    <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_pt_pt.txt" useWhitelist="true"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
