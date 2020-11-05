@@ -1,3 +1,4 @@
+NE
 NN
 NNS
 NNP
