@@ -45,6 +45,7 @@ jobs:
                 repository: mkalkbrenner/search_api_solr
                 ref: 4.x
                 path: search_api_solr
+                fetch-depth: 0
 
             - name: Tag search_api_solr
               run: |
@@ -200,6 +201,7 @@ jobs:
                 repository: mkalkbrenner/search_api_solr
                 ref: 4.x
                 path: search_api_solr
+                fetch-depth: 0
 
             - name: Tag search_api_solr
               run: |
