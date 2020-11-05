@@ -110,7 +110,7 @@ jobs:
                 vendor/bin/drush language-add uk
                 vendor/bin/drush language-add zh-hans
                 vendor/bin/drush language-add zh-hant
-                vendor/bin/drush en config --yes
+                vendor/bin/drush en search_api_solr_nlp,config --yes
                 vendor/bin/drush cim --partial --source=modules/contrib/search_api_solr/jump-start/drupal_configs --yes
 
             - name: Generate config-sets
