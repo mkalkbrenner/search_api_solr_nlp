@@ -6,14 +6,14 @@ dependencies:
     - language
   config:
     - language.entity.nl
-id: text_nouns_nl_7_0_0
-label: 'Dutch Nouns Field'
+id: text_edge_nouns_nl_7_0_0
+label: 'Dutch Edge NGram Nouns Field'
 minimum_solr_version: 7.0.0
-custom_code: 'nouns'
+custom_code: 'edge_nouns'
 field_type_language_code: nl
 domains: {}
 field_type:
-  name: text_nouns_nl
+  name: text_edge_nouns_nl
   class: solr.TextField
   positionIncrementGap: 100
   analyzers:
@@ -30,15 +30,19 @@ field_type:
           posTaggerModel: nl-pos-maxent.bin
         -
           class: solr.TypeTokenFilterFactory
-          types: pos_nouns_nl.txt
+          types: pos_edge_nouns_nl.txt
           useWhitelist: true
         -
           class: solr.LowerCaseFilterFactory
         -
           class: solr.SynonymGraphFilterFactory
-          synonyms: synonyms_nouns_nl.txt
+          synonyms: synonyms_edge_nouns_nl.txt
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
+        -
+          class: solr.EdgeNGramFilterFactory
+          minGramSize: 2
+          maxGramSize: 25
     -
       type: query
       tokenizer:
@@ -52,7 +56,7 @@ field_type:
           posTaggerModel: nl-pos-maxent.bin
         -
           class: solr.TypeTokenFilterFactory
-          types: pos_nouns_nl.txt
+          types: pos_edge_nouns_nl.txt
           useWhitelist: true
         -
           class: solr.LowerCaseFilterFactory

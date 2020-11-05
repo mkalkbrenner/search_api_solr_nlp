@@ -5,15 +5,15 @@ dependencies:
     - search_api_solr
     - language
   config:
-    - language.entity.nl
-id: text_nouns_nl_7_0_0
-label: 'Dutch Nouns Field'
+    - language.entity.en
+id: text_edge_nouns_en_7_0_0
+label: 'English Edge NGram Nouns Field'
 minimum_solr_version: 7.0.0
-custom_code: 'nouns'
-field_type_language_code: nl
+custom_code: 'edge_nouns'
+field_type_language_code: en
 domains: {}
 field_type:
-  name: text_nouns_nl
+  name: text_nouns_en
   class: solr.TextField
   positionIncrementGap: 100
   analyzers:
@@ -22,40 +22,40 @@ field_type:
       tokenizer:
         -
           class: solr.OpenNLPTokenizerFactory
-          sentenceModel: nl-sent.bin
-          tokenizerModel: nl-token.bin
+          sentenceModel: en-sent.bin
+          tokenizerModel: en-token.bin
       filters:
         -
           class: solr.OpenNLPPOSFilterFactory
-          posTaggerModel: nl-pos-maxent.bin
+          posTaggerModel: en-pos-maxent.bin
         -
           class: solr.TypeTokenFilterFactory
-          types: pos_nouns_nl.txt
+          types: pos_edge_nouns_en.txt
           useWhitelist: true
         -
-          class: solr.LowerCaseFilterFactory
-        -
           class: solr.SynonymGraphFilterFactory
-          synonyms: synonyms_nouns_nl.txt
+          synonyms: synonyms_edge_nouns_en.txt
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
+        -
+          class: solr.EdgeNGramFilterFactory
+          minGramSize: 2
+          maxGramSize: 25
     -
       type: query
       tokenizer:
         -
           class: solr.OpenNLPTokenizerFactory
-          sentenceModel: nl-sent.bin
-          tokenizerModel: nl-token.bin
+          sentenceModel: en-sent.bin
+          tokenizerModel: en-token.bin
       filters:
         -
           class: solr.OpenNLPPOSFilterFactory
-          posTaggerModel: nl-pos-maxent.bin
+          posTaggerModel: en-pos-maxent.bin
         -
           class: solr.TypeTokenFilterFactory
-          types: pos_nouns_nl.txt
+          types: pos_edge_nouns_en.txt
           useWhitelist: true
-        -
-          class: solr.LowerCaseFilterFactory
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
 solr_configs: {}
