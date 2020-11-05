@@ -30,7 +30,7 @@ field_type:
           posTaggerModel: en-pos-maxent.bin
         -
           class: solr.TypeTokenFilterFactory
-          types: nouns_pos_und.txt
+          types: pos_nouns_und.txt
           useWhitelist: true
         -
           class: solr.SynonymGraphFilterFactory
@@ -50,11 +50,11 @@ field_type:
           posTaggerModel: en-pos-maxent.bin
         -
           class: solr.TypeTokenFilterFactory
-          types: nouns_pos_und.txt
+          types: pos_nouns_und.txt
           useWhitelist: true
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
 solr_configs: {}
 text_files:
-  nouns_pos: |
+  pos: |
   synonyms: |
