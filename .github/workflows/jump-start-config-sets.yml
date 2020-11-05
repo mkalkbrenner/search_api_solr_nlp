@@ -6,7 +6,7 @@ on:
     pull_request:
 
     schedule:
-        - cron: '0 8 * * *' # run at 08:00 UTC
+        - cron: '0 7 * * *' # run at 08:00 UTC
 
 jobs:
     generate-config-sets:
@@ -50,11 +50,23 @@ jobs:
                 cd search_api_solr
                 git tag 4.99.0
 
+            - name: Checkout search_api_solr_nlp
+              uses: actions/checkout@v2
+              with:
+                path: search_api_solr_nlp
+                fetch-depth: 0
+
+            - name: Tag search_api_solr_nlp
+              run: |
+                cd search_api_solr_nlp
+                git tag 1.99.0
+
             - name: Install dependencies
               run: |
                 cd drupal
                 composer config repositories.search_api_solr '{"type": "vcs", "url": "../search_api_solr"}'
-                composer require drupal/search_api_solr:4.99.0 drush/drush drupal/drush_language:1.x-dev --ignore-platform-reqs --no-interaction --no-suggest
+                composer config repositories.search_api_solr_nlp '{"type": "vcs", "url": "../search_api_solr_nlp"}'
+                composer require drupal/search_api_solr:4.99.0 drupal/search_api_solr_nlp:1.99.0 drush/drush drupal/drush_language:1.x-dev --ignore-platform-reqs --no-interaction --no-suggest
 
             - name: Install drupal
               run: |
@@ -96,47 +108,28 @@ jobs:
                 vendor/bin/drush language-add uk
                 vendor/bin/drush language-add zh-hans
                 vendor/bin/drush language-add zh-hant
-                vendor/bin/drush en search_api_solr_legacy,config --yes
                 vendor/bin/drush cim --partial --source=modules/contrib/search_api_solr/jump-start/drupal_configs --yes
 
             - name: Generate config-sets
               run: |
                 cd drupal
-                vendor/bin/drush -v solr-gsc solr config.zip 4.5
-                rm ../search_api_solr/jump-start/solr4/config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr4/config-set config.zip
-                vendor/bin/drush -v solr-gsc solr config.zip 5
-                rm ../search_api_solr/jump-start/solr5/config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr5/config-set config.zip
-                vendor/bin/drush -v solr-gsc solr config.zip 6
-                rm ../search_api_solr/jump-start/solr6/config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr6/config-set config.zip
                 vendor/bin/drush -v solr-gsc solr config.zip 7
-                rm ../search_api_solr/jump-start/solr7/config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr7/config-set config.zip
+                rm ../search_api_solr_nlp/jump-start/solr7/config-set/*
+                unzip -o -d ../search_api_solr_nlp/jump-start/solr7/config-set config.zip
                 vendor/bin/drush -v solr-gsc solr config.zip 8
-                rm ../search_api_solr/jump-start/solr8/config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr8/config-set config.zip
-                vendor/bin/drush -v solr-gsc solr_cloud config.zip 4.5
-                rm ../search_api_solr/jump-start/solr4/cloud-config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr4/cloud-config-set config.zip
-                vendor/bin/drush -v solr-gsc solr_cloud config.zip 5
-                rm ../search_api_solr/jump-start/solr5/cloud-config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr5/cloud-config-set config.zip
-                vendor/bin/drush -v solr-gsc solr_cloud config.zip 6
-                rm ../search_api_solr/jump-start/solr6/cloud-config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr6/cloud-config-set config.zip
+                rm ../search_api_solr_nlp/jump-start/solr8/config-set/*
+                unzip -o -d ../search_api_solr_nlp/jump-start/solr8/config-set config.zip
                 vendor/bin/drush -v solr-gsc solr_cloud config.zip 7
-                rm ../search_api_solr/jump-start/solr7/cloud-config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr7/cloud-config-set config.zip
+                rm ../search_api_solr_nlp/jump-start/solr7/cloud-config-set/*
+                unzip -o -d ../search_api_solr_nlp/jump-start/solr7/cloud-config-set config.zip
                 vendor/bin/drush -v solr-gsc solr_cloud config.zip 8
-                rm ../search_api_solr/jump-start/solr8/cloud-config-set/*
-                unzip -o -d ../search_api_solr/jump-start/solr8/cloud-config-set config.zip
+                rm ../search_api_solr_nlp/jump-start/solr8/cloud-config-set/*
+                unzip -o -d ../search_api_solr_nlp/jump-start/solr8/cloud-config-set config.zip
 
             - uses: actions/upload-artifact@v2
               with:
                 name: jump-start-config-sets
-                path: search_api_solr/jump-start
+                path: search_api_solr_nlp/jump-start
 
     run-tests:
         runs-on: ubuntu-latest
@@ -146,7 +139,7 @@ jobs:
         strategy:
             matrix:
                 drupal: ['8.9', '9.0', '9.1']
-                solr: ['4', '5', '6', '7', '8']
+                solr: ['7', '8']
                 php: ['7.3', '7.4']
                 exclude:
                   - drupal: '9.1'
@@ -211,11 +204,23 @@ jobs:
                 cd search_api_solr
                 git tag 4.99.0
 
+            - name: Checkout search_api_solr_nlp
+              uses: actions/checkout@v2
+              with:
+                path: search_api_solr_nlp
+                fetch-depth: 0
+
+            - name: Tag search_api_solr_nlp
+              run: |
+                cd search_api_solr_nlp
+                git tag 1.99.0
+
             - name: Install dependencies
               run: |
                 cd drupal
                 composer config repositories.search_api_solr '{"type": "vcs", "url": "../search_api_solr"}'
-                composer require solarium/solarium:"dev-master as 6.0.99" drupal/search_api_solr:4.99.0 drupal/search_api_autocomplete:1.x-dev drupal/search_api_spellcheck:3.x-dev drupal/facets:1.x-dev drupal/devel:3.x-dev drupal/search_api_location:1.x-dev drupal/geofield drush/drush monolog/monolog --ignore-platform-reqs --no-interaction --no-suggest
+                composer config repositories.search_api_solr_nlp '{"type": "vcs", "url": "../search_api_solr_nlp"}'
+                composer require solarium/solarium:"dev-master as 6.0.99" drupal/search_api_solr:4.99.0 drupal/search_api_solr_nlp:1.99.0 drupal/search_api_autocomplete:1.x-dev drupal/search_api_spellcheck:3.x-dev drupal/facets:1.x-dev drupal/devel:3.x-dev drupal/search_api_location:1.x-dev drupal/geofield drush/drush monolog/monolog --ignore-platform-reqs --no-interaction --no-suggest
                 # search_api was installed as dendency above. This is a required check! Now switch to the latest dev version.
                 composer require drupal/search_api:1.x-dev --ignore-platform-reqs --no-interaction --no-suggest
                 composer run-script drupal-phpunit-upgrade
@@ -256,25 +261,25 @@ jobs:
         needs: [run-tests]
 
         steps:
-            - name: Checkout search_api_solr
+            - name: Checkout search_api_solr_nlp
               uses: actions/checkout@v2
               with:
-                path: search_api_solr
+                path: search_api_solr_nlp
                 fetch-depth: 0
 
             - name: Remove old config-sets
               run: |
-                cd search_api_solr/jump-start
+                cd search_api_solr_nlp/jump-start
                 rm -rf *
 
             - uses: actions/download-artifact@v2
               with:
                 name: jump-start-config-sets
-                path: search_api_solr/jump-start
+                path: search_api_solr_nlp/jump-start
 
             - name: Commit new config-sets
               run: |
-                cd search_api_solr
+                cd search_api_solr_nlp
                 git config --local user.email "action@github.com"
                 git config --local user.name "GitHub Action"
                 git pull
@@ -285,5 +290,5 @@ jobs:
               uses: ad-m/github-push-action@master
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                directory: search_api_solr
+                directory: search_api_solr_nlp
                 branch: ${{ github.ref }}
