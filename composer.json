@@ -21,6 +21,6 @@
     },
     "require": {
         "drupal/search_api_solr": "~4.1",
-        "mkalkbrenner/solarium-nlp": "~0.1"
+        "mkalkbrenner/solarium-nlp": "^0.1.1"
     }
 }

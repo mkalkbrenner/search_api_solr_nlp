@@ -1,0 +1,61 @@
+<?php
+
+use SolariumNlp\Nlp;
+use ZipStream\ZipStream;
+
+/**
+ * Alter the newly assembled Solr configuration files.
+ *
+ * @param string[] $files
+ *   Array of config files keyed by file names.
+ * @param string $lucene_match_version
+ *   Lucene (Solr) minor version string.
+ * @param string $server_id
+ *   Optional Search API server id. Will be set in most cases but might be
+ *   empty when the config generation is triggered via UI or drush.
+ */
+function search_api_solr_nlp_search_api_solr_config_files_alter(array &$files, string $lucene_match_version, string $server_id = '') {
+  $models = [];
+  if (isset($files['schema_extra_types.xml'])) {
+    if (preg_match_all('@Model="([^"]+\.bin)"@', $files['schema_extra_types.xml'], $matches)) {
+      foreach($matches[1] as $match) {
+        $models[] = $match;
+      }
+    }
+  }
+  search_api_solr_nlp_set_models(array_unique($models));
+}
+
+/**
+ * Alter the zip archive of newly assembled Solr configuration files.
+ *
+ * @param \ZipStream\ZipStream $files
+ *   Zip archive.
+ * @param string $lucene_match_version
+ *   Lucene (Solr) minor version string.
+ * @param string $server_id
+ *   Optional Search API server id. Will be set in most cases but might be
+ *   empty when the config generation is triggered via UI or drush.
+ */
+function search_api_solr_nlp_search_api_solr_config_zip_alter(ZipStream $zip, string $lucene_match_version, string $server_id = '') {
+  $nlp = new Nlp();
+  foreach(search_api_solr_nlp_set_models([], TRUE) as $model) {
+      $zip->addFileFromPath($model, $nlp->getOpenNlpDemoModelPath($model));
+  }
+}
+
+/**
+ * @param array $models
+ * @param bool $get
+ *
+ * @return array
+ */
+function search_api_solr_nlp_set_models(array $models, bool $get = FALSE): array {
+  static $stored_models = [];
+
+  if (!$get) {
+    $stored_models = $models;
+  }
+
+  return $stored_models;
+}
