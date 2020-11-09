@@ -7,7 +7,7 @@ dependencies:
   config:
     - language.entity.se
 id: text_nouns_se_7_0_0
-label: 'Swedish Nouns Field'
+label: 'Sami (Northern) Nouns Field'
 minimum_solr_version: 7.0.0
 custom_code: 'nouns'
 field_type_language_code: se
