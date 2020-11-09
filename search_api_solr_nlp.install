@@ -1,0 +1,20 @@
+<?php
+
+use Drupal\Component\Serialization\Yaml;
+
+/**
+ * Add lower case filter to German field types.
+ */
+function search_api_solr_nlp_update_8001() {
+  foreach (['nouns', 'edge_nouns'] as $custom_code) {
+    $filename = __DIR__ . '/config/optional/search_api_solr.solr_field_type.text_' . $custom_code . '_de_7_0_0.yml';
+    $config = Yaml::decode(file_get_contents($filename));
+
+    foreach (search_api_solr_update_helper_get_field_type_configs() as $field_type_name => $field_type_config) {
+      if ('search_api_solr.solr_field_type.text_' . $custom_code . '_de' === $field_type_name) {
+        search_api_solr_update_helper_save_field_type_config($field_type_name, ['uuid' => $field_type_config['uuid']] + $config);
+        break;
+      }
+    }
+  }
+}
