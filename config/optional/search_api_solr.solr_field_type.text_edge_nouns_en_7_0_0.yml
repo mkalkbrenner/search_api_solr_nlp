@@ -33,9 +33,6 @@ field_type:
           types: pos_edge_nouns_en.txt
           useWhitelist: true
         -
-          class: solr.SynonymGraphFilterFactory
-          synonyms: synonyms_edge_nouns_en.txt
-        -
           class: solr.RemoveDuplicatesTokenFilterFactory
         -
           class: solr.EdgeNGramFilterFactory
@@ -56,6 +53,9 @@ field_type:
           class: solr.TypeTokenFilterFactory
           types: pos_edge_nouns_en.txt
           useWhitelist: true
+        -
+          class: solr.SynonymGraphFilterFactory
+          synonyms: synonyms_edge_nouns_en.txt
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
 solr_configs: {}

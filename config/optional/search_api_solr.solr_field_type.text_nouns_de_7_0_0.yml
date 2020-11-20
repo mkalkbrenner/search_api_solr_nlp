@@ -35,9 +35,6 @@ field_type:
         -
           class: solr.LowerCaseFilterFactory
         -
-          class: solr.SynonymGraphFilterFactory
-          synonyms: synonyms_nouns_de.txt
-        -
           class: solr.RemoveDuplicatesTokenFilterFactory
     -
       type: query
@@ -54,6 +51,11 @@ field_type:
           class: solr.TypeTokenFilterFactory
           types: pos_nouns_de.txt
           useWhitelist: true
+        -
+          class: solr.LowerCaseFilterFactory
+        -
+          class: solr.SynonymGraphFilterFactory
+          synonyms: synonyms_nouns_de.txt
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
 solr_configs: {}

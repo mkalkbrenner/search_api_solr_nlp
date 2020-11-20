@@ -35,9 +35,6 @@ field_type:
         -
           class: solr.LowerCaseFilterFactory
         -
-          class: solr.SynonymGraphFilterFactory
-          synonyms: synonyms_edge_nouns_nl.txt
-        -
           class: solr.RemoveDuplicatesTokenFilterFactory
         -
           class: solr.EdgeNGramFilterFactory
@@ -60,6 +57,9 @@ field_type:
           useWhitelist: true
         -
           class: solr.LowerCaseFilterFactory
+        -
+          class: solr.SynonymGraphFilterFactory
+          synonyms: synonyms_edge_nouns_nl.txt
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
 solr_configs: {}

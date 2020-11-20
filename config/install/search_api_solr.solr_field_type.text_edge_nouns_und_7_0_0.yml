@@ -4,8 +4,6 @@ dependencies:
   module:
     - search_api_solr
     - language
-  config:
-    - language.entity.und
 id: text_edge_nouns_und_7_0_0
 label: 'Language Undefined Edge NGram Nouns Field'
 minimum_solr_version: 7.0.0
@@ -35,9 +33,6 @@ field_type:
         -
           class: solr.LowerCaseFilterFactory
         -
-          class: solr.SynonymGraphFilterFactory
-          synonyms: synonyms_edge_nouns_und.txt
-        -
           class: solr.RemoveDuplicatesTokenFilterFactory
         -
           class: solr.EdgeNGramFilterFactory
@@ -60,6 +55,9 @@ field_type:
           useWhitelist: true
         -
           class: solr.LowerCaseFilterFactory
+        -
+          class: solr.SynonymGraphFilterFactory
+          synonyms: synonyms_edge_nouns_und.txt
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
 solr_configs: {}

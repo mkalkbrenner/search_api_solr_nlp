@@ -33,8 +33,7 @@ field_type:
           types: pos_edge_nouns_de.txt
           useWhitelist: true
         -
-          class: solr.SynonymGraphFilterFactory
-          synonyms: synonyms_edge_nouns_de.txt
+          class: solr.LowerCaseFilterFactory
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
         -
@@ -56,6 +55,11 @@ field_type:
           class: solr.TypeTokenFilterFactory
           types: pos_edge_nouns_de.txt
           useWhitelist: true
+        -
+          class: solr.LowerCaseFilterFactory
+        -
+          class: solr.SynonymGraphFilterFactory
+          synonyms: synonyms_edge_nouns_de.txt
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
 solr_configs: {}
