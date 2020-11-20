@@ -269,7 +269,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="da-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_da.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_da.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
     <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="25"/>
   </analyzer>
@@ -278,6 +277,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="da-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_da.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_da.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -291,7 +291,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="da-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_da.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_da.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
   <analyzer type="query">
@@ -299,6 +298,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="da-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_da.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_da.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -369,7 +369,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="nl-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_nl.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_nl.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
     <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="25"/>
   </analyzer>
@@ -378,6 +377,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="nl-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_nl.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_nl.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -391,7 +391,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="nl-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_nl.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_nl.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
   <analyzer type="query">
@@ -399,6 +398,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="nl-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_nl.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_nl.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -511,7 +511,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_en.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_en.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
   <analyzer type="query">
@@ -519,6 +518,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_en.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_en.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -935,7 +935,7 @@
     <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="de-sent.bin" tokenizerModel="de-token.bin"/>
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="de-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_de.txt" useWhitelist="true"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_de.txt"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
     <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="25"/>
   </analyzer>
@@ -943,6 +943,8 @@
     <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="de-sent.bin" tokenizerModel="de-token.bin"/>
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="de-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_de.txt" useWhitelist="true"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_de.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -956,13 +958,14 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="de-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_de.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_de.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
   <analyzer type="query">
     <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="de-sent.bin" tokenizerModel="de-token.bin"/>
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="de-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_de.txt" useWhitelist="true"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_de.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -1276,7 +1279,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_und.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_und.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
     <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="25"/>
   </analyzer>
@@ -1285,6 +1287,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_und.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_und.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -1297,13 +1300,15 @@
     <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="en-sent.bin" tokenizerModel="en-token.bin"/>
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_und.txt" useWhitelist="true"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_und.txt"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
   <analyzer type="query">
     <tokenizer class="solr.OpenNLPTokenizerFactory" sentenceModel="en-sent.bin" tokenizerModel="en-token.bin"/>
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="en-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_und.txt" useWhitelist="true"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_und.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -1681,7 +1686,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_pt_br.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_pt_br.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
     <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="25"/>
   </analyzer>
@@ -1690,6 +1694,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_pt_br.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_pt_br.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -1703,7 +1708,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_pt_br.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_pt_br.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
   <analyzer type="query">
@@ -1711,6 +1715,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_pt_br.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_pt_br.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -1777,7 +1782,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_pt_pt.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_pt_pt.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
     <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="25"/>
   </analyzer>
@@ -1786,6 +1790,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_edge_nouns_pt_pt.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_edge_nouns_pt_pt.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
@@ -1799,7 +1804,6 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_pt_pt.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
-    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_pt_pt.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
   <analyzer type="query">
@@ -1807,6 +1811,7 @@
     <filter class="solr.OpenNLPPOSFilterFactory" posTaggerModel="pt-pos-maxent.bin"/>
     <filter class="solr.TypeTokenFilterFactory" types="pos_nouns_pt_pt.txt" useWhitelist="true"/>
     <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms_nouns_pt_pt.txt"/>
     <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
   </analyzer>
 </fieldType>
