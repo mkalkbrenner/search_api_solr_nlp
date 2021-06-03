@@ -6,7 +6,7 @@ on:
     pull_request:
 
     schedule:
-        - cron: '0 7 * * *' # run at 08:00 UTC
+        - cron: '0 7 * * *' # run at 07:00 UTC
 
 jobs:
     generate-config-sets:
@@ -142,22 +142,20 @@ jobs:
 
         strategy:
             matrix:
-                drupal: ['8.9', '9.0', '9.1']
+                drupal: ['8.9', '9.0', '9.1', '9.2']
                 solr: ['7', '8']
                 php: ['7.3', '7.4']
                 exclude:
-                  - drupal: '9.1'
-                    solr: '4'
-                    php: '7.3'
-                  - drupal: '9.1'
-                    solr: '5'
-                    php: '7.3'
-                  - drupal: '9.1'
-                    solr: '6'
-                    php: '7.3'
-                  - drupal: '9.1'
+                  - drupal: '9.2'
                     solr: '7'
                     php: '7.3'
+                  - drupal: '9.2'
+                    solr: '8'
+                    php: '7.3'
+                include:
+                  - drupal: '9.2'
+                    solr: '8'
+                    php: '8.0'
 
         name: Drupal ${{ matrix.drupal }}, Solr ${{ matrix.solr }}, PHP ${{ matrix.php }}
 
