@@ -22,5 +22,8 @@
     "require": {
         "drupal/search_api_solr": "^4.2.0|dev-4.x",
         "mkalkbrenner/solarium-nlp": "^0.1.1"
+    },
+    "suggest": {
+        "drupal/search_api_autocomplete": "Provides auto complete for search boxes. Works better with NLP based field types provided by this module."
     }
 }
