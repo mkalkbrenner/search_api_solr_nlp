@@ -20,10 +20,9 @@ field_type:
     -
       type: index
       tokenizer:
-        -
-          class: solr.OpenNLPTokenizerFactory
-          sentenceModel: pt-sent.bin
-          tokenizerModel: pt-token.bin
+        class: solr.OpenNLPTokenizerFactory
+        sentenceModel: pt-sent.bin
+        tokenizerModel: pt-token.bin
       filters:
         -
           class: solr.OpenNLPPOSFilterFactory
@@ -39,10 +38,9 @@ field_type:
     -
       type: query
       tokenizer:
-        -
-          class: solr.OpenNLPTokenizerFactory
-          sentenceModel: pt-sent.bin
-          tokenizerModel: pt-token.bin
+        class: solr.OpenNLPTokenizerFactory
+        sentenceModel: pt-sent.bin
+        tokenizerModel: pt-token.bin
       filters:
         -
           class: solr.OpenNLPPOSFilterFactory
