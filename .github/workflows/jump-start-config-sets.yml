@@ -27,20 +27,20 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                php-version: 8.0
+                php-version: 8.1
                 extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, intl, gd, iconv, json, simplexml
                 ini-values: memory_limit=256M,post_max_size=256M
                 coverage: none
 
             - name: Checkout drupal
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                 repository: drupal/drupal
-                ref: 9.3.x
+                ref: 9.5.x
                 path: drupal
 
             - name: Checkout search_api_solr
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                 repository: mkalkbrenner/search_api_solr
                 ref: 4.x
@@ -53,7 +53,7 @@ jobs:
                 git tag 4.99.0
 
             - name: Checkout search_api_solr_nlp
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                 path: search_api_solr_nlp
                 fetch-depth: 0
@@ -130,7 +130,7 @@ jobs:
                 rm ../search_api_solr_nlp/jump-start/solr8/cloud-config-set/*
                 unzip -o -d ../search_api_solr_nlp/jump-start/solr8/cloud-config-set config.zip
 
-            - uses: actions/upload-artifact@v2
+            - uses: actions/upload-artifact@v3
               with:
                 name: jump-start-config-sets
                 path: search_api_solr_nlp/jump-start
@@ -142,9 +142,16 @@ jobs:
 
         strategy:
             matrix:
-                drupal: ['9.3', '9.4']
+                drupal: ['9.5']
                 solr: ['7', '8']
-                php: ['7.4', '8.0']
+                php: ['7.4', '8.1']
+                include:
+                  - drupal: '10.0'
+                    solr: '7'
+                    php: '8.1'
+                  - drupal: '10.0'
+                    solr: '8'
+                    php: '8.1'
 
         name: Drupal ${{ matrix.drupal }}, Solr ${{ matrix.solr }}, PHP ${{ matrix.php }}
 
@@ -165,7 +172,7 @@ jobs:
                 ini-values: memory_limit=256M,post_max_size=256M
                 coverage: none
 
-            - uses: actions/download-artifact@v2
+            - uses: actions/download-artifact@v3
               with:
                 name: jump-start-config-sets
                 path: solr
@@ -176,14 +183,14 @@ jobs:
                 docker-compose up -d
 
             - name: Checkout drupal
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                 repository: drupal/drupal
                 ref: ${{ matrix.drupal }}.x
                 path: drupal
 
             - name: Checkout search_api_solr
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                 repository: mkalkbrenner/search_api_solr
                 ref: 4.x
@@ -196,7 +203,7 @@ jobs:
                 git tag 4.99.0
 
             - name: Checkout search_api_solr_nlp
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                 path: search_api_solr_nlp
                 fetch-depth: 0
@@ -246,7 +253,7 @@ jobs:
 
         steps:
             - name: Checkout search_api_solr_nlp
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                 path: search_api_solr_nlp
                 fetch-depth: 0
@@ -256,7 +263,7 @@ jobs:
                 cd search_api_solr_nlp/jump-start
                 rm -rf *
 
-            - uses: actions/download-artifact@v2
+            - uses: actions/download-artifact@v3
               with:
                 name: jump-start-config-sets
                 path: search_api_solr_nlp/jump-start
