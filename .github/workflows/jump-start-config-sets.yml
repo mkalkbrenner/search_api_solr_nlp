@@ -27,7 +27,7 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                php-version: 8.1
+                php-version: 8.2
                 extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, intl, gd, iconv, json, simplexml
                 ini-values: memory_limit=256M,post_max_size=256M
                 coverage: none
@@ -36,7 +36,7 @@ jobs:
               uses: actions/checkout@v3
               with:
                 repository: drupal/drupal
-                ref: 10.0.x
+                ref: 10.1.x
                 path: drupal
 
             - name: Checkout search_api_solr
@@ -95,6 +95,7 @@ jobs:
                 vendor/bin/drush language-add id
                 vendor/bin/drush language-add it
                 vendor/bin/drush language-add ja
+                vendor/bin/drush language-add ko
                 vendor/bin/drush language-add lv
                 vendor/bin/drush language-add nb
                 vendor/bin/drush language-add nl
@@ -130,6 +131,9 @@ jobs:
                 vendor/bin/drush -v solr-gsc solr_cloud config.zip 8
                 rm ../search_api_solr_nlp/jump-start/solr8/cloud-config-set/*
                 unzip -o -d ../search_api_solr_nlp/jump-start/solr8/cloud-config-set config.zip
+                vendor/bin/drush -v solr-gsc solr_cloud config.zip 9
+                rm ../search_api_solr_nlp/jump-start/solr9/cloud-config-set/*
+                unzip -o -d ../search_api_solr_nlp/jump-start/solr9/cloud-config-set config.zip
 
             - uses: actions/upload-artifact@v3
               with:
@@ -145,43 +149,10 @@ jobs:
 
         strategy:
             matrix:
-                drupal: ['9.5', '10.0']
-                solr: ['7', '8']
-                php: ['8.1']
+                drupal: ['10.0', '10.1']
+                solr: ['7', '8', '9']
+                php: ['8.1', '8.2']
                 experimental: [false]
-                include:
-                  - drupal: '9.5'
-                    solr: '7'
-                    php: '7.4'
-                    experimental: true
-                  - drupal: '9.5'
-                    solr: '8'
-                    php: '7.4'
-                    experimental: true
-                  - drupal: '9.5'
-                    solr: '7'
-                    php: '8.0'
-                    experimental: false
-                  - drupal: '9.5'
-                    solr: '8'
-                    php: '8.0'
-                    experimental: false
-                  - drupal: '10.0'
-                    solr: '7'
-                    php: '8.2'
-                    experimental: false
-                  - drupal: '10.0'
-                    solr: '8'
-                    php: '8.2'
-                    experimental: false
-                  - drupal: '10.1'
-                    solr: '7'
-                    php: '8.2'
-                    experimental: true
-                  - drupal: '10.1'
-                    solr: '8'
-                    php: '8.2'
-                    experimental: true
 
         name: Drupal ${{ matrix.drupal }}, Solr ${{ matrix.solr }}, PHP ${{ matrix.php }}
 
