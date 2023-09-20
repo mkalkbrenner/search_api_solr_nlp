@@ -9,4 +9,3 @@ services:
     environment:
       - SOLR_OPTS=-Djute.maxbuffer=50000000
     command: bash -c "docker-entrypoint.sh solr start -c; solr create -c drupal -d server/solr/configsets/drupal/conf -n drupal; solr restart -c -f"
-z
